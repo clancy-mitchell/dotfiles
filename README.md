@@ -1,4 +1,16 @@
-*** I doubt this is the best way to set this up, but it's what I've got for now
+## Features
+* [x] Hyprland
+* [x] Waybar
+* [x] Evil Emacs
+* [x] Stylix  
+* [x] Screenshots with Annotations
+* [ ] Local X11 Applications (Calling it now this is a DNS issue)
+* [ ] X11 Forwarding
+* [ ] Screensharing
+* [ ] Moonlight
+
+
+## Installation
 
 ##### Install Nix
 ```
@@ -30,16 +42,19 @@ nix-shell '<home-manager>' -A install
 
 ##### Switch to flake
 ```
-home-manager switch --flake .#clancy
+home-manager switch --flake .#cm
 ```
 
+##### Fire it up
+```
+nixGLIntel start-hyprland
+```
 
-##### Graphics compatibility stuff?
+## Debugging
+
+##### Grubby for integrated Intel Graphics
 ```
-nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl && nix-channel --update
+sudo grubby --update-kernel=ALL --remove-args="nomodeset"
+sudo grubby --update-kernel=ALL --args="i915.modeset=1 i915.enable_guc=0 nomodeset"
 ```
 
-##### TTY time?
-```
-nix-env -iA nixgl.auto.nixGLIntel
-```
