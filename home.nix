@@ -28,6 +28,9 @@ in
   stylix.targets.qt.enable = false;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-dark.yaml";
 
+  # Fonts
+  fonts.fontconfig.enable = true;
+
   # Hyprland compositor
   wayland.windowManager.hyprland = {
     enable = true;
@@ -39,8 +42,8 @@ in
 
       # Monitors, use 'hyprctl monitors'
       monitor = [
-        "DP-1,    2560x1440@165,    0x0,1"
-        "HDMI-A-2,2560x1440@60,  2560x0,1"
+        "DP-1,     2560x1440@165,    0x0, 1"
+        "HDMI-A-2, 2560x1440@60,  2560x0, 1"
       ];
 
       input = {
@@ -49,7 +52,7 @@ in
         accel_profile = "flat";
 
         # Keyboard
-      	repeat_rate = 60;
+        repeat_rate  = 60;
         repeat_delay = 200;
       };
 
@@ -59,10 +62,9 @@ in
         disable_splash_rendering = true;
       };
 
-
       # Muscle memory
       bind = [
-        "SUPER_SHIFT,      P,  exec,grim -g \"$(slurp)\" - | swappy -f -"
+        "SUPER_SHIFT,      P, exec,grim -g \"$(slurp)\" - | swappy -f -"
       	"SUPER_SHIFT, RETURN, exec,footclient -e zsh"
         "SUPER, D,            exec,wofi --show drun"
         "SUPER, Q,            killactive"
@@ -104,15 +106,17 @@ in
 
   # Minimal Wayland environment
   home.packages = with pkgs; with nix-misc; [
-    grim
-    slurp
-    swappy
+    slurp                       # Select screen cordinates
+    grim                        # Take a screenshot
+    swappy                      # Minimal image editor
     git-fuzzy                   # Pretty git diff
-    nixgl.nixGLIntel            # OpenGL wrapper
+    nixgl.nixGLIntel            # OpenGL Intel wrapper
     xdg-desktop-portal-hyprland # Wayland portal backend
     xdg-desktop-portal-gtk      # Makes GTK apps work properly
     wofi                        # Simple application launcher
-    fd
+    fd                          # Super fast find
+    xeyes                       # X11 Testing
+    font-awesome                # Icons
   ];
 }
 

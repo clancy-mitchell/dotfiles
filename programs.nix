@@ -343,17 +343,22 @@
           "hyprland/workspaces"
         ];
         modules-right = [
+          "network"
           "cpu"
           "memory"
           "clock"
           "date"
         ];
+        cpu.format = "CPU: {}%";
+        memory.format = "RAM: {}%";
         clock = {
           timezone = "America/Los_Angeles";
           format = "{:%H:%M %A, %B %d, %Y}";
         };
-        cpu.format = "CPU: {}%";
-        memory.format = "RAM: {}%";
+        network = {
+          format-ethernet = "{ifname}: {ipaddr}/{cidr}";
+          format-disconnected = "{ifname}: Disconnected";
+        };
       };
     };
   };
