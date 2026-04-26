@@ -5,6 +5,14 @@
 
     fzf.enable = true;
 
+    wofi = {
+      enable = true;
+      settings = {
+        width = 900;
+        height = 500;
+      };
+    };
+
     zsh = {
       enable = true;
       autosuggestion.enable = true;

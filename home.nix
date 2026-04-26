@@ -113,7 +113,6 @@ in
     nixgl.nixGLIntel            # OpenGL Intel wrapper
     xdg-desktop-portal-hyprland # Wayland portal backend
     xdg-desktop-portal-gtk      # Makes GTK apps work properly
-    wofi                        # Simple application launcher
     fd                          # Super fast find
     xeyes                       # X11 Testing
     font-awesome                # Icons
