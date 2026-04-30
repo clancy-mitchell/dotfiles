@@ -62,6 +62,13 @@ in
         disable_splash_rendering = true;
       };
 
+      general = {
+        border_size = 2;
+        # Override Stylix.
+        "col.active_border" = lib.mkForce "rgb(4ade80)";
+        "col.inactive_border" = lib.mkForce "rgba(595959aa)";
+      };
+
       # Muscle memory
       bind = [
         "SUPER_SHIFT,      P, exec,grim -g \"$(slurp)\" - | swappy -f -"
@@ -70,6 +77,7 @@ in
         "SUPER, Q,            killactive"
         "SUPER, R,            exec,cd ~/git/dotfiles && home-manager switch --flake .#cm"
         "SUPER, P,            exec,emacsclient -c -n"
+        "SUPER, G,            exec,firefox"
         "SUPER_SHIFT, backspace, exit"
 
         "SUPER, H, movefocus,l"
@@ -94,10 +102,10 @@ in
       ]) (lib.range 1 10);
 
       # No animations please
-      animation = [
-        "global, 0, 0, default"
-        "specialWorkspace, 0"
-      ];
+      #animation = [
+      #  "global, 0, 0, default"
+      #  "specialWorkspace, 0"
+      #];
     };
   };
 
