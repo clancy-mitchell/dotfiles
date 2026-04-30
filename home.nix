@@ -106,6 +106,12 @@ in
       #  "global, 0, 0, default"
       #  "specialWorkspace, 0"
       #];
+
+      exec-once = [
+        # Global clipboard buffer
+        "wl-paste -p --watch wl-copy &"
+        "wl-clip-persist --clipboard both &"
+      ];
     };
   };
 
@@ -124,6 +130,8 @@ in
     fd                          # Super fast find
     xeyes                       # X11 Testing
     font-awesome                # Icons
+    wl-clipboard                # Clipboard management
+    wl-clip-persist             # Clipboard management
   ];
 }
 
